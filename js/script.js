@@ -53,6 +53,21 @@ const cardDemo = {
 const displayVideos = (videos) => {
   const videoContainer = document.getElementById("videos");
   videoContainer.innerHTML = "";
+
+  if(videos.length === 0) {
+    videoContainer.classList.remove("grid");
+    videoContainer.innerHTML = `
+      <div class="min-h-[300px] w-full flex flex-col gap-5 justify-center items-center">
+        <img src="icon.png"/>
+        <h2 class="text-center text-xl font-bold">Ops! No content here in this category</h2>
+      </div>
+    `;
+    return
+  }
+  else{
+    videoContainer.classList.add('grid');
+  }
+
   videos.forEach((video) => {
     console.log(video);
 
